@@ -1,0 +1,255 @@
+.logo {
+    width: 100px;
+    height: 30px;
+}
+
+.navbar{
+    height: 60px;
+}
+
+.navbar-brand{
+    padding-top: 10px;
+}
+
+.navbar-nav .nav-link{
+    background: none;
+    padding: 8px 16px;
+    border-radius: 60px;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.navbar-nav .nav-link:active{
+    background-color: rgb(230, 248, 137);
+    color: rgb(162, 255, 0);
+}
+
+.collapse{
+    background-color: rgba(255, 255, 255, 0.746);
+}
+
+.landing-page {
+    background-image: url("/assets/img/Black and Pink Gradient Motivational Quote Desktop Wallpaper.png");
+    height: 100vh;
+    background-size: cover;
+}
+
+.lp-heading{
+    color: #FFC0CB;
+    font-family: 'Dela Gothic One', sans-serif;
+}
+
+.wcu-section {
+    background-color: #f9fbfe;
+}
+
+.wcu-section-heading {
+    color: #183b56;
+    font-family: "Roboto";
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.wcu-section-description {
+    color: #5a7184;
+    font-family: "Roboto";
+    font-size: 16px;
+}
+
+.wcu-card {
+    text-align: center;
+    background-color: white;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #e5eaf4;
+    border-radius: 16px;
+}
+
+.wcu-card-image {
+    width: 87px;
+    height: auto;
+}
+
+.wcu-card-title {
+    color: #323f4b;
+    font-family: "Roboto";
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.wcu-card-description {
+    color: #7b8794;
+    font-family: "Roboto";
+    font-size: 16px;
+}
+
+.explore-art-section {
+    background-color: white;
+}
+
+.art-section-heading {
+    color: #183b56;
+    font-family: "Roboto";
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.art-item-image {
+    border-radius: 16px;
+}
+
+.art-card-title {
+    color: #323f4b;
+    font-family: "Roboto";
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 24px;
+}
+
+.art-item-link {
+    color: #FFC0CB;
+    font-family: "Roboto";
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.art-item-card {
+    border-radius: 16px;
+}
+
+
+
+.delivery{
+    background-color: rgba(245, 245, 220, 0.465);
+}
+
+.dp-heading{
+    display: flex;
+    text-align: justify;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: 300;
+    padding-left: 10px;
+}
+
+.dp-button{
+    background-color: rgb(63, 63, 63);
+    color: white;
+    width: 200px;
+    padding: 10px;
+    align-items: center;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.payment{
+    background-color: rgba(245, 245, 220, 0.465);
+}
+
+.payment-card-img {
+    width: 50px;
+    height: 50px;
+    margin-right: 28px;
+}
+
+.follow-us-section {
+    background-color: white;
+}
+
+.follow-us-section-heading {
+    text-align: center;
+    color: #183b56;
+    font-family: "Roboto";
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.follow-us-icon-container {
+    background-color: #faf7e8;
+    width: 80px;
+    height: 80px;
+    border-radius: 40px;
+    margin: 15px;
+    padding-top: 22px;
+    padding-bottom: 14px;
+    padding-right: 16px;
+    padding-left: 22px;
+}
+
+.icon {
+    color: rgb(67, 67, 67);
+    height: 35px;
+    width: 35px;
+}
+
+.icon:hover{
+    color: blue;
+}
+
+.icon-twitter:hover {
+    color: skyblue;
+}
+
+.icon-insta:hover{
+    color: rgba(245, 122, 61, 0.91);
+}
+
+.icon-youtube:hover{
+    color: red;
+}
+
+.footer{
+    background-color: gainsboro;
+}
+
+.fh{
+    font-family: "Roboto";
+    font-size: 36px;
+}
+
+.fp-light{
+    color: #2f163f;
+}
+
+.cdetails{
+    text-decoration: none;
+    color: black;
+}
+
+.cdetails:hover{
+    text-decoration: none;
+    color: #881a2c;
+}
+
+.f-input{
+    border: none;
+    border-radius: 20px;
+    width: 100%;
+    height: 50px;
+}
+
+.sub-button{
+    border: none;
+    outline: none;
+    height: 50px;
+    width: 100%;
+    background-color: #881a2c;
+    color: white;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.sub-button:hover{
+    background-color: white;
+    color: #881a2c;
+    border: 1px solid;
+}

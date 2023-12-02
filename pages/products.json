@@ -1,0 +1,72 @@
+[
+    {
+        "id": 1,
+        "name":" Landscape Canvas",
+        "price": 85,
+        "image": "/assets/img/1.png"
+    },
+    {
+        "id": 2,
+        "name":" Golden Bear",
+        "price": 100,
+        "image": "/assets/img/2.png"
+    },
+    {
+        "id": 3,
+        "name":" Pampas Painting",
+        "price": 45,
+        "image": "/assets/img/3.png"
+    },
+    {
+        "id": 4,
+        "name":" Antique Lotus",
+        "price": 185,
+        "image": "/assets/img/4.png"
+    },
+    {
+        "id": 5,
+        "name":" Clay Deer Figure",
+        "price": 200,
+        "image": "/assets/img/5.png"
+    },
+    {
+        "id": 6,
+        "name":" Medieval Clay Figures",
+        "price": 250,
+        "image": "/assets/img/6.png"
+    },
+    {
+        "id": 7,
+        "name":" Antique Pot",
+        "price": 100,
+        "image": "/assets/img/7.png"
+    },
+    {
+        "id": 8,
+        "name":" Clay Bowl",
+        "price": 40,
+        "image": "/assets/img/8.png"
+    },
+    {
+        "id": 9,
+        "name":" Couple Sclpture",
+        "price": 100,
+        "image": "/assets/img/9.png"
+    },{
+        "id": 10,
+        "name":" Thinking Face",
+        "price": 200,
+        "image": "/assets/img/10.png"
+    },{
+        "id": 11,
+        "name":" Just Art",
+        "price": 450,
+        "image": "/assets/img/11.png"
+    },{
+        "id": 12,
+        "name":" Greek God",
+        "price": 200,
+        "image": "/assets/img/12.png"
+    }
+
+]

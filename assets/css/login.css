@@ -1,0 +1,45 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: darkgray;
+}
+.row{
+    background-color: rgb(226, 231, 234);
+    border-radius: 30px;
+    box-shadow: 12px 12px 22px rgb(46, 43, 43);
+}
+.banner{
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    margin-left: -12px;
+}
+.logo{
+    width: 200px;
+    height: auto;
+}
+.btn1{
+    border: none;
+    outline: none;
+    height: 50px;
+    width: 100%;
+    background-color: black;
+    color: white;
+    border-radius: 4px;
+    font-weight: bold;
+}
+.btn1:hover{
+    background-color: white;
+    color: black;
+    border: 1px solid;
+}
+.signupbutton{
+    color: #0000EE;
+}
+
+.register {
+    display: none;
+  }
