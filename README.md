@@ -63,12 +63,5 @@ RARE is a premium, full-stack ecommerce platform for curated art collections. It
    npm run dev
    ```
 
-## 🎨 Design Philosophy
-
-RARE follows a **Minimal yet Rich** design language.
-- **Colors**: Slate 900/50 backgrounds with Indigo-Purple gradients.
-- **Depth**: Extensive use of backdrop-filters (glassmorphism) and layered shadows.
-- **Micro-interactions**: Subtle hover state elevations and smooth transitions between themes.
 
 ---
-Built with ❤️ by the RARE Team.
