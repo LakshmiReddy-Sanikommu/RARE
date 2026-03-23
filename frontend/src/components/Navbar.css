@@ -1,7 +1,7 @@
 .premium-nav {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     background: transparent;
-    padding: 20px 0;
+    padding: 15px 0;
 }
 
 .premium-nav.scrolled {
@@ -9,18 +9,23 @@
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--glass-border);
-    padding: 10px 0;
+    padding: 12px 0;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
 .premium-logo {
     height: 35px;
-    filter: brightness(0) invert(1);
-    transition: transform 0.2s ease, filter 0.3s ease;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), filter 0.4s ease;
 }
 
+/* Default (Dark Theme) Logo State */
+.premium-logo {
+    filter: brightness(0) invert(1) drop-shadow(0 0 10px rgba(129, 140, 248, 0.3));
+}
+
+/* Light Theme Logo State (Original Black) */
 .light-theme .premium-logo {
-    filter: brightness(0);
+    filter: none;
 }
 
 .premium-logo:hover {
@@ -122,25 +127,47 @@
 .custom-toggler {
     border: none;
     background: var(--glass-bg);
-    padding: 8px 12px;
-    border-radius: 8px;
+    padding: 8px 10px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.custom-toggler:active {
+    transform: scale(0.9);
 }
 
 .custom-toggler .navbar-toggler-icon {
-    filter: var(--theme-icon-filter, invert(1));
+    width: 24px;
+    height: 24px;
+    filter: brightness(0) invert(1); /* Default to white for dark theme */
 }
 
-.light-theme {
-    --theme-icon-filter: none;
+.light-theme .custom-toggler .navbar-toggler-icon {
+    filter: brightness(0); /* Black for light theme */
 }
 
 @media (max-width: 991px) {
     .premium-nav {
         background: var(--bg-dark);
         border-bottom: 1px solid var(--glass-border);
+        box-shadow: 0 4px 30px rgba(0,0,0,0.1);
     }
+    
+    .navbar-collapse {
+        background: var(--nav-scroll-bg);
+        border-radius: 20px;
+        margin-top: 15px;
+        padding: 20px;
+        border: 1px solid var(--glass-border);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+    } 
+    
     .navbar-nav {
-        padding: 20px 0;
+        padding: 10px 0;
         text-align: center;
         gap: 15px;
     }
@@ -158,5 +185,26 @@
         position: static;
         text-align: center;
         min-width: auto;
+        padding: 0;
+        margin-top: 0;
+    }
+
+    .profile-trigger {
+        justify-content: center;
+        width: 100%;
+        padding: 10px 0 !important;
+    }
+
+    .user-avatar {
+        margin-right: 12px !important;
+    }
+
+    .border-bottom-glass, .border-top-glass {
+        border-color: rgba(255, 255, 255, 0.1) !important;
+        background: transparent !important;
+    }
+
+    .light-theme .border-bottom-glass, .light-theme .border-top-glass {
+        border-color: rgba(0, 0, 0, 0.05) !important;
     }
 }

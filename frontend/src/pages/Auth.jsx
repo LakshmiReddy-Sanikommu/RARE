@@ -13,11 +13,9 @@ const Auth = () => {
     const [password, setPassword] = useState('');
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
-    const [city, setCity] = useState('');
-    const [state, setState] = useState('');
-    const [zip, setZip] = useState('');
     const [errorMsg, setErrorMsg] = useState('');
     const [isLoading, setIsLoading] = useState(false);
+    const [showPassword, setShowPassword] = useState(false);
 
     const toggleMode = () => {
         setIsLogin(!isLogin);
@@ -31,7 +29,6 @@ const Auth = () => {
 
         setIsLoading(true);
         try {
-            // Note: Targeting the Express backend directly on port 3000
             const response = await fetch('http://localhost:3000/login', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -66,10 +63,7 @@ const Auth = () => {
                     FirstName: firstName,
                     LastName: lastName,
                     Password: password,
-                    Email: email,
-                    State: state,
-                    City: city,
-                    Zip: zip
+                    Email: email
                 })
             });
             const data = await response.json();
@@ -88,101 +82,139 @@ const Auth = () => {
     };
 
     return (
-        <div className="auth-wrapper">
-            <div className="auth-background-shapes">
-                <div className="shape shape-1"></div>
-                <div className="shape shape-2"></div>
-                <div className="shape shape-3"></div>
+        <div className="auth-wrapper split-layout">
+            {/* Visual Side */}
+            <div className="auth-visual-side">
+                <div className="visual-overlay"></div>
+                <div className="visual-content fade-in">
+                    <div className="brand-badge mb-4">RARE Art Gallery</div>
+                    <h1 className="display-3 font-weight-bold mb-3">Immerse Your Soul in <span className="gradient-text">Art</span></h1>
+                    <p className="lead opacity-80">Discover imagination painted on canvas with our exclusively curated premium collections.</p>
+                </div>
+                <div className="visual-footer d-flex justify-content-between align-items-center">
+                    <span className="text-sm">© {new Date().getFullYear()} RARE ART GALLERY</span>
+                    <div className="social-mini">
+                        <i className="fab fa-instagram mr-3"></i>
+                        <i className="fab fa-twitter"></i>
+                    </div>
+                </div>
             </div>
-            
-            <div className={`auth-container ${isLogin ? 'is-login' : 'is-signup'}`}>
-                <div className="auth-card glass-panel">
-                    
-                    <div className="auth-header">
-                        <Link to="/">
-                            <img src="/assets/img/logo.png" className="auth-logo" alt="RARE Logo" />
+
+            {/* Form Side */}
+            <div className="auth-form-side">
+                <div className="form-container fade-in">
+                    <div className="form-header">
+                        <Link to="/" className="back-link mb-4 d-inline-block">
+                            <i className="fas fa-arrow-left mr-2"></i> Back to Gallery
                         </Link>
-                        <h2 className="auth-title">{isLogin ? 'Welcome Back' : 'Join RARE'}</h2>
-                        <p className="auth-subtitle">
+                        <h2 className="display-5 font-weight-bold mb-2">
+                            {isLogin ? 'Welcome Back' : 'Create Account'}
+                        </h2>
+                        <p className="text-secondary mb-4">
                             {isLogin 
-                                ? 'Enter your details to access your premium art collection.' 
-                                : 'Create an account to discover imagination painted on canvas.'}
+                                ? 'Sign in to access your private collection.' 
+                                : 'Join our community of art enthusiasts today.'}
                         </p>
                     </div>
 
-                    {errorMsg && <div className="auth-error-chip py-2">{errorMsg}</div>}
+                    {errorMsg && <div className="auth-error-chip py-2 mb-4">{errorMsg}</div>}
 
-                    <div className="auth-body">
+                    <div className="form-body">
                         {isLogin ? (
-                            <form className="auth-form fade-in" onSubmit={handleLogin}>
-                                <div className="input-group">
-                                    <i className="fas fa-envelope input-icon"></i>
-                                    <input type="email" placeholder="Email Address" value={email} onChange={e=>setEmail(e.target.value)} required />
+                            <form className="auth-form" onSubmit={handleLogin}>
+                                <div className="input-group-modern">
+                                    <label>Email Address</label>
+                                    <div className="input-with-icon">
+                                        <i className="fas fa-envelope icon"></i>
+                                        <input type="email" placeholder="name@example.com" value={email} onChange={e=>setEmail(e.target.value)} required />
+                                    </div>
                                 </div>
-                                <div className="input-group">
-                                    <i className="fas fa-lock input-icon"></i>
-                                    <input type="password" placeholder="Password" value={password} onChange={e=>setPassword(e.target.value)} required />
+                                <div className="input-group-modern">
+                                    <label>Password</label>
+                                    <div className="input-with-icon">
+                                        <i className="fas fa-lock icon"></i>
+                                        <input 
+                                            type={showPassword ? "text" : "password"} 
+                                            placeholder="••••••••" 
+                                            value={password} 
+                                            onChange={e=>setPassword(e.target.value)} 
+                                            required 
+                                        />
+                                        <button 
+                                            type="button" 
+                                            className="password-toggle-eye"
+                                            onClick={() => setShowPassword(!showPassword)}
+                                        >
+                                            <i className={`fas ${showPassword ? 'fa-eye-slash' : 'fa-eye'}`}></i>
+                                        </button>
+                                    </div>
                                 </div>
                                 
-                                <div className="auth-actions align-items-center">
-                                    <a href="#" className="forgot-password">Forgot Password?</a>
+                                <div className="d-flex justify-content-end mb-4">
+                                    <a href="#" className="text-sm font-weight-500 text-indigo">Forgot Password?</a>
                                 </div>
 
-                                <button type="submit" className="auth-submit-btn" disabled={isLoading}>
-                                    {isLoading ? <span className="spinner"></span> : 'Sign In'}
+                                <button type="submit" className="btn-premium w-100 py-3" disabled={isLoading}>
+                                    {isLoading ? <span className="spinner"></span> : 'Sign In to Account'}
                                 </button>
                             </form>
                         ) : (
-                            <form className="auth-form fade-in" onSubmit={handleSignup}>
-                                <div className="d-flex gap-10">
-                                    <div className="input-group half-width">
-                                        <i className="fas fa-user input-icon"></i>
-                                        <input type="text" placeholder="First Name" value={firstName} onChange={e=>setFirstName(e.target.value)} required />
+                            <form className="auth-form" onSubmit={handleSignup}>
+                                <div className="row g-3">
+                                    <div className="col-6">
+                                        <div className="input-group-modern">
+                                            <label>First Name</label>
+                                            <input type="text" placeholder="John" value={firstName} onChange={e=>setFirstName(e.target.value)} required />
+                                        </div>
                                     </div>
-                                    <div className="input-group half-width">
-                                        <i className="fas fa-user input-icon"></i>
-                                        <input type="text" placeholder="Last Name" value={lastName} onChange={e=>setLastName(e.target.value)} required />
+                                    <div className="col-6">
+                                        <div className="input-group-modern">
+                                            <label>Last Name</label>
+                                            <input type="text" placeholder="Doe" value={lastName} onChange={e=>setLastName(e.target.value)} required />
+                                        </div>
                                     </div>
                                 </div>
 
-                                <div className="input-group">
-                                    <i className="fas fa-envelope input-icon"></i>
-                                    <input type="email" placeholder="Email Address" value={email} onChange={e=>setEmail(e.target.value)} required />
+                                <div className="input-group-modern">
+                                    <label>Email Address</label>
+                                    <input type="email" placeholder="john@example.com" value={email} onChange={e=>setEmail(e.target.value)} required />
                                 </div>
-                                <div className="input-group">
-                                    <i className="fas fa-lock input-icon"></i>
-                                    <input type="password" placeholder="Password" value={password} onChange={e=>setPassword(e.target.value)} required />
+                                <div className="input-group-modern">
+                                    <label>Password</label>
+                                    <div className="input-with-icon">
+                                        <i className="fas fa-lock icon"></i>
+                                        <input 
+                                            type={showPassword ? "text" : "password"} 
+                                            placeholder="Create a strong password" 
+                                            value={password} 
+                                            onChange={e=>setPassword(e.target.value)} 
+                                            required 
+                                        />
+                                        <button 
+                                            type="button" 
+                                            className="password-toggle-eye"
+                                            onClick={() => setShowPassword(!showPassword)}
+                                        >
+                                            <i className={`fas ${showPassword ? 'fa-eye-slash' : 'fa-eye'}`}></i>
+                                        </button>
+                                    </div>
                                 </div>
                                 
-                                <div className="d-flex gap-10">
-                                    <div className="input-group third-width">
-                                        <input type="text" placeholder="City" value={city} onChange={e=>setCity(e.target.value)} />
-                                    </div>
-                                    <div className="input-group third-width">
-                                        <input type="text" placeholder="State" value={state} onChange={e=>setState(e.target.value)} />
-                                    </div>
-                                    <div className="input-group third-width">
-                                        <input type="text" placeholder="Zip" value={zip} onChange={e=>setZip(e.target.value)} />
-                                    </div>
-                                </div>
-
-                                <button type="submit" className="auth-submit-btn mt-3" disabled={isLoading}>
-                                    {isLoading ? <span className="spinner"></span> : 'Create Account'}
+                                <button type="submit" className="btn-premium w-100 py-3 mt-4" disabled={isLoading}>
+                                    {isLoading ? <span className="spinner"></span> : 'Create Your Account'}
                                 </button>
                             </form>
                         )}
                     </div>
 
-                    <div className="auth-footer text-center mt-4">
-                        <p className="toggle-text">
-                            {isLogin ? "Don't have an account?" : "Already a member?"}
-                            <button className="toggle-btn" onClick={toggleMode} type="button">
-                                {isLogin ? 'Sign up now' : 'Log in here'}
-                                <i className="fas fa-arrow-right ml-1"></i>
+                    <div className="form-footer mt-5 text-center">
+                        <p className="text-secondary">
+                            {isLogin ? "Don't have an account?" : "Already have an account?"}
+                            <button className="btn-link ml-2 font-weight-bold text-indigo p-0" onClick={toggleMode} type="button">
+                                {isLogin ? 'Register now' : 'Sign in here'}
                             </button>
                         </p>
                     </div>
-
                 </div>
             </div>
         </div>

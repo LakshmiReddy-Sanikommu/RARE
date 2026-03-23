@@ -9,19 +9,29 @@ const Navbar = () => {
     const location = useLocation();
     const navigate = useNavigate();
     const isLanding = location.pathname === '/';
+    const isAuth = location.pathname === '/auth';
     const [scrolled, setScrolled] = useState(false);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    
+    // Force solid navbar background on Auth page
+    const navClass = scrolled || isAuth ? 'scrolled' : '';
     
     const { cart } = useContext(CartContext);
     const { user, logout } = useContext(AuthContext);
     const { theme, toggleTheme } = useContext(ThemeContext);
+
+    const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+    const closeMenu = () => setIsMenuOpen(false);
 
     useEffect(() => {
         const handleScroll = () => {
             setScrolled(window.scrollY > 50);
         };
         window.addEventListener('scroll', handleScroll);
+        // Close menu on navigation
+        setIsMenuOpen(false);
         return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+    }, [location.pathname]);
 
     const handleLogout = (e) => {
         e.preventDefault();
@@ -32,7 +42,7 @@ const Navbar = () => {
     const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
 
     return (
-        <nav className={`navbar navbar-expand-lg fixed-top premium-nav ${scrolled ? 'scrolled' : ''}`}>
+        <nav className={`navbar navbar-expand-lg fixed-top premium-nav ${navClass}`}>
             <div className="container">
                 <Link className="navbar-brand d-flex align-items-center" to="/">
                     <img src="/assets/img/logo.png" className="premium-logo" alt="RARE" />
@@ -45,25 +55,30 @@ const Navbar = () => {
                         <i className="fas fa-shopping-cart fa-lg"></i>
                         {cartCount > 0 && <span className="cart-badge badge badge-pill badge-primary position-absolute" style={{top: '0', right: '5px', fontSize: '0.65rem', background: 'var(--accent-gradient)'}}>{cartCount}</span>}
                     </Link>
-                    <button className="navbar-toggler custom-toggler ml-2" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
+                    <button 
+                        className={`navbar-toggler custom-toggler ml-2 ${theme === 'dark-theme' ? 'navbar-dark' : 'navbar-light'}`} 
+                        type="button" 
+                        onClick={toggleMenu}
+                        aria-expanded={isMenuOpen}
+                    >
                         <span className="navbar-toggler-icon"></span>
                     </button>
                 </div>
                 
-                <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div className={`collapse navbar-collapse ${isMenuOpen ? 'show' : ''}`} id="navbarNavAltMarkup">
                     <div className="navbar-nav ml-auto align-items-center gap-4">
                         {isLanding ? (
                             <>
-                                <a className="nav-link premium-link" href="#wcuSection">Features</a>
-                                <a className="nav-link premium-link" href="#exploreart">Explore</a>
-                                <a className="nav-link premium-link" href="#delivery">Logistics</a>
-                                <Link className="nav-link premium-link" to="/shop">Shop</Link>
+                                <a className="nav-link premium-link" href="#wcuSection" onClick={closeMenu}>Features</a>
+                                <a className="nav-link premium-link" href="#exploreart" onClick={closeMenu}>Explore</a>
+                                <a className="nav-link premium-link" href="#delivery" onClick={closeMenu}>Logistics</a>
+                                <Link className="nav-link premium-link" to="/shop" onClick={closeMenu}>Shop</Link>
                             </>
                         ) : (
                             <>
-                                <Link className="nav-link premium-link" to="/">Home</Link>
-                                <Link className="nav-link premium-link" to="/gallery">Gallery</Link>
-                                <Link className="nav-link premium-link" to="/shop">Shop</Link>
+                                <Link className="nav-link premium-link" to="/" onClick={closeMenu}>Home</Link>
+                                <Link className="nav-link premium-link" to="/gallery" onClick={closeMenu}>Gallery</Link>
+                                <Link className="nav-link premium-link" to="/shop" onClick={closeMenu}>Shop</Link>
                             </>
                         )}
                         
