@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+/* Dark Theme (Default) */
+.dark-theme, :root {
+  --bg-dark: #0f172a;
+  --bg-card: rgba(15, 23, 42, 0.4);
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.07);
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --accent-gradient: linear-gradient(135deg, #818cf8 0%, #c084fc 100%);
+  --accent-hover: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+  --nav-scroll-bg: rgba(15, 23, 42, 0.9);
+  --input-bg: rgba(15, 23, 42, 0.8);
+  --success: #10b981;
+  --danger: #ef4444;
+}
+
+/* Light Theme overrides */
+.light-theme {
+  --bg-dark: #f8fafc;
+  --bg-card: rgba(255, 255, 255, 0.7);
+  --glass-bg: rgba(255, 255, 255, 0.5);
+  --glass-border: rgba(15, 23, 42, 0.08);
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+  --accent-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+  --accent-hover: linear-gradient(135deg, #4f46e5 0%, #9333ea 100%);
+  --nav-scroll-bg: rgba(248, 250, 252, 0.9);
+  --input-bg: rgba(255, 255, 255, 0.9);
+  --success: #059669;
+  --danger: #dc2626;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  font-family: 'Outfit', sans-serif;
+  overflow-x: hidden;
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  color: var(--text-primary);
+  transition: color 0.3s ease;
+}
+
+a {
+  color: #818cf8;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.light-theme a {
+  color: #4f46e5;
+}
+
+a:hover {
+  color: #a5b4fc;
+  text-decoration: none;
+}
+
+.light-theme a:hover {
+  color: #4338ca;
+}
+
+/* Global Glass Panel Utility */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  box-shadow: 0 4px 24px -1px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dark-theme .glass-panel {
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+}
+
+/* Global Gradient Text Utility */
+.gradient-text {
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Global Premium Button */
+.btn-premium {
+  background: var(--accent-gradient);
+  color: white !important;
+  border: none;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 10px 24px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-premium:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(99, 102, 241, 0.4);
+}
+
+.btn-premium:active {
+  transform: translateY(0);
+}
+
+/* Loading animations */
+.fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Modern inputs */
+input, select, textarea {
+  background: var(--input-bg);
+  border: 1px solid var(--glass-border);
+  color: var(--text-primary);
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-family: 'Outfit', sans-serif;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: #6366f1;
+  background: var(--input-bg);
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
+}
+
+input::placeholder, textarea::placeholder {
+  color: var(--text-secondary);
+}
+
+/* Bootstrap Overrides for Theme Awareness */
+.text-white, .text-primary {
+  color: var(--text-primary) !important;
+}
+
+.text-secondary, .text-muted {
+  color: var(--text-secondary) !important;
+}
+
+.bg-white {
+  background-color: var(--bg-card) !important;
+}
+
+.border-bottom, .border-top, .border {
+  border-color: var(--glass-border) !important;
+}
+
+.btn-outline-premium {
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--glass-border);
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 10px 24px;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.btn-outline-premium:hover {
+  background: var(--glass-border);
+  transform: translateY(-2px);
+  color: var(--text-primary);
+}
+
+.text-indigo {
+  color: #6366f1 !important;
+}
+
+.light-theme .text-indigo {
+  color: #4f46e5 !important;
+}
+
+.btn-outline-light {
+  border-color: var(--glass-border) !important;
+  color: var(--text-primary) !important;
+}
+
+.btn-outline-light:hover {
+  background: var(--glass-border) !important;
+  color: var(--text-primary) !important;
+}

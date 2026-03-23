@@ -1,0 +1,147 @@
+.landing-container {
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+}
+
+/* Ambient Background Orbs */
+.ambient-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    z-index: 0;
+    opacity: 0.5;
+}
+
+.orb-1 {
+    width: 600px;
+    height: 600px;
+    background: rgba(99, 102, 241, 0.4);
+    top: -200px;
+    left: -200px;
+    animation: drift 20s infinite alternate ease-in-out;
+}
+
+.orb-2 {
+    width: 500px;
+    height: 500px;
+    background: rgba(236, 72, 153, 0.3);
+    bottom: 20%;
+    right: -150px;
+    animation: drift 25s infinite alternate-reverse ease-in-out;
+}
+
+@keyframes drift {
+    0% { transform: translateY(0) scale(1); }
+    100% { transform: translateY(100px) scale(1.2); }
+}
+
+.z-index-1 {
+    position: relative;
+    z-index: 1;
+}
+
+/* Hero Section */
+.hero-section {
+    min-height: 85vh;
+    padding-top: 100px;
+}
+
+.hero-heading {
+    font-size: 4.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -2px;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    line-height: 1.6;
+}
+
+/* Features */
+.feature-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.icon-wrapper {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.feature-icon {
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Gallery Preview Cards */
+.preview-card {
+    transition: transform 0.3s ease;
+}
+
+.preview-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.preview-img-wrapper {
+    height: 250px;
+    overflow: hidden;
+}
+
+.preview-img {
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.preview-card:hover .preview-img {
+    transform: scale(1.1);
+}
+
+.preview-btn {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-primary);
+    border: 1px solid var(--glass-border);
+    transition: all 0.2s ease;
+}
+
+.preview-btn:hover {
+    background: var(--accent-gradient);
+    border-color: transparent;
+    color: white;
+    transform: translateX(4px);
+}
+
+/* Floating Image */
+.floating-img {
+    animation: float-img 6s infinite ease-in-out;
+}
+
+@keyframes float-img {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+@media (max-width: 768px) {
+    .hero-heading { font-size: 3rem; }
+    .hero-subtitle { font-size: 1.1rem; }
+    .hero-section { min-height: 70vh; }
+}
