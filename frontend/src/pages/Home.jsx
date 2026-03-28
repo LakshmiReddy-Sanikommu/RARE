@@ -9,7 +9,7 @@ const Home = () => {
     const { addToCart } = useContext(CartContext);
 
     useEffect(() => {
-        fetch('/products.json')
+        fetch(`${import.meta.env.BASE_URL}products.json`)
             .then(res => res.json())
             .then(data => setProducts(data))
             .catch(err => console.error(err));

@@ -13,7 +13,7 @@ const ProductDetail = () => {
 
     useEffect(() => {
         // Fetch all products to find the match and similar
-        fetch('/products.json')
+        fetch(`${import.meta.env.BASE_URL}products.json`)
             .then(res => res.json())
             .then(data => {
                 const found = data.find(p => p.id === parseInt(id));
