@@ -10,7 +10,7 @@
 .auth-visual-side {
     position: relative;
     flex: 1.2;
-    background-image: url('/assets/img/login_bg.png');
+    background-image: url('/RARE/assets/img/login_bg.png');
     background-size: cover;
     background-position: center;
     display: flex;

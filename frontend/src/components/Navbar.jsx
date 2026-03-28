@@ -45,7 +45,7 @@ const Navbar = () => {
         <nav className={`navbar navbar-expand-lg fixed-top premium-nav ${navClass}`}>
             <div className="container">
                 <Link className="navbar-brand d-flex align-items-center" to="/">
-                    <img src="/assets/img/logo.png" className="premium-logo" alt="RARE" />
+                    <img src={`${import.meta.env.BASE_URL}assets/img/logo.png`} className="premium-logo" alt="RARE" />
                 </Link>
                 <div className="d-flex align-items-center d-lg-none">
                     <button className="theme-toggle-btn mr-3" onClick={toggleTheme}>

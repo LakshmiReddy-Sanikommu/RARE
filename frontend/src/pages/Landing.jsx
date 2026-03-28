@@ -67,9 +67,9 @@ const Landing = () => {
                     
                     <div className="row g-4">
                         {[
-                            { title: 'Elegant Painting', img: '/assets/img/banner1.png' },
-                            { title: 'Sculptures & Idols', img: '/assets/img/banner2.png' },
-                            { title: 'Clay Art', img: '/assets/img/banner3.png' }
+                            { title: 'Elegant Painting', img: `${import.meta.env.BASE_URL}assets/img/banner1.png` },
+                            { title: 'Sculptures & Idols', img: `${import.meta.env.BASE_URL}assets/img/banner2.png` },
+                            { title: 'Clay Art', img: `${import.meta.env.BASE_URL}assets/img/banner3.png` }
                         ].map((item, idx) => (
                             <div className="col-md-4" key={idx}>
                                 <div className="glass-panel preview-card p-0 overflow-hidden">
@@ -95,7 +95,7 @@ const Landing = () => {
                     <div className="glass-panel p-5">
                         <div className="row align-items-center">
                             <div className="col-lg-6 mb-4 mb-lg-0">
-                                <img src="/assets/img/delivery.png" alt="Delivery" className="img-fluid floating-img" style={{maxHeight: '300px'}} />
+                                <img src={`${import.meta.env.BASE_URL}assets/img/delivery.png`} alt="Delivery" className="img-fluid floating-img" style={{maxHeight: '300px'}} />
                             </div>
                             <div className="col-lg-6 text-lg-left">
                                 <h2 className="gradient-text mb-3">Seamless Delivery</h2>

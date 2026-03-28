@@ -8,7 +8,7 @@ const Footer = () => {
             <div className="container">
                 <div className="row text-center text-md-left align-items-center mb-4">
                     <div className="col-md-4 mb-4 mb-md-0 d-flex flex-column align-items-center align-items-md-start">
-                        <img src="/assets/img/logo.png" className="footer-logo mb-3" alt="RARE Logo" />
+                        <img src={`${import.meta.env.BASE_URL}assets/img/logo.png`} className="footer-logo mb-3" alt="RARE Logo" />
                         <p className="footer-description text-muted">
                             Where imagination meets canvas. Premium, hand-crafted art collections curated just for you.
                         </p>

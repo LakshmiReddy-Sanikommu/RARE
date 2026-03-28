@@ -14,9 +14,9 @@ const Gallery = () => {
 
                 <div className="row g-4">
                     {[
-                        { title: 'Painting Mastery', img: '/assets/img/banner1.png', desc: 'Stunning canvas creations by world-class artists.' },
-                        { title: 'Sculpture & Idols', img: '/assets/img/banner2.png', desc: 'Detailed stone, wood, and metallic figures.' },
-                        { title: 'Modern Clay Art', img: '/assets/img/banner3.png', desc: 'Vibrant and delicate clay masterpieces.' }
+                        { title: 'Painting Mastery', img: `${import.meta.env.BASE_URL}assets/img/banner1.png`, desc: 'Stunning canvas creations by world-class artists.' },
+                        { title: 'Sculpture & Idols', img: `${import.meta.env.BASE_URL}assets/img/banner2.png`, desc: 'Detailed stone, wood, and metallic figures.' },
+                        { title: 'Modern Clay Art', img: `${import.meta.env.BASE_URL}assets/img/banner3.png`, desc: 'Vibrant and delicate clay masterpieces.' }
                     ].map((item, index) => (
                         <div className="col-12 col-lg-4 fade-in" style={{animationDelay: `${index * 0.2}s`}} key={index}>
                             <div className="glass-panel preview-card h-100 p-0 overflow-hidden text-center rounded-lg">
