@@ -30,7 +30,7 @@ function App() {
     <ThemeProvider>
       <AuthProvider>
         <CartProvider>
-          <Router basename={import.meta.env.BASE_URL}>
+          <Router basename={import.meta.env.BASE_URL.replace(/\/$/, '')}>
             <Layout>
                 <Routes>
                   <Route path="/" element={<Landing />} />
